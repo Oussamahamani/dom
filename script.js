@@ -10,6 +10,7 @@ const cities = [
 
 
 let ul = document.querySelector("#cityList")
+// console.log( ul)
 
 for (let city of cities){
     // console.log(city)
@@ -31,10 +32,25 @@ for (let city of cities){
 
     let tempLi = document.createElement("li")
     tempLi.textContent = `Temperature: ${temp}`
+    tempLi.classList.add("temp")
     ul.append(tempLi)
 
 
 }
 
 //part 2: convert those to celsius 
+let tempList = document.querySelectorAll(".temp")
+
+for (let temp of tempList){
+    let currentTemp = Number(temp.textContent.split("Temperature: ")[1])
+
+    let celsius =  Math.round((currentTemp - 32) * 5/9)
+   
+    // temp.textContent=  `Temperature: ${celsius}`
+
+   let newText =  temp.textContent.replace(currentTemp,celsius)
+   temp.textContent = newText
+   
+}
+
 
