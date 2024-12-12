@@ -54,3 +54,23 @@ for (let temp of tempList){
 }
 
 
+// part3: The Return of Color
+
+let cityList = document.querySelectorAll("li:nth-child(odd)")
+// console.log(cityList)
+
+for (let city of cityList){
+    // city.style.color = "red"
+    let temp = city.nextSibling.textContent.split("Temperature: ")[1]
+    if(temp>=30){
+        console.log("too hot",city.textContent)
+        city.nextSibling.remove()
+        city.remove()
+       continue 
+    }
+    if(temp>=20){
+        city.style.color="red"
+    }else{
+        city.style.color = "blue"
+    }
+}
